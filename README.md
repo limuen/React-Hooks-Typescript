@@ -42,3 +42,23 @@ You don’t have to ever use `eject`. The curated feature set is suitable for sm
 You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
 To learn React, check out the [React documentation](https://reactjs.org/).
+
+
+<!-- 创建ts项目 -->
+npx create-react-app leamui --typescript
+
+<!-- 安装className -->
+npm install classNames --save
+npm install @types/classNames --save
+
+<!-- jest测试 实时监听刷新-->
+npx jest jest.test.js --watch 
+
+<!-- enzyme测试工具 -->
+
+<!-- Testing Library测试工具 -->
+最新版本package.json
+"@testing-library/jest-dom": "^4.2.4",
+"@testing-library/react": "^9.3.2",
+"@testing-library/user-event": "^7.1.2",
+自动安装
