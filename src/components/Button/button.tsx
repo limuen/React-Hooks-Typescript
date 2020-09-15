@@ -34,13 +34,13 @@ const Button: React.FC<ButtonProps> = (props) => {
     const { btnType, className, disabled, size, children, href, ...restProps } = props;
 
     // 默认btn, bth-parmary, btn-lg,
-    const classes = classNames("btn", className, {
-        [`btn-${btnType}`]: btnType,
-        [`btn-${size}`]: size,
+    const classes = classNames("limuen-btn", className, {
+        [`limuen-btn-${btnType}`]: btnType,
+        [`limuen-btn-${size}`]: size,
         'disabled': (btnType === ButtonType.Link) && disabled,
     });
 
-    // 判断btnType 是否等于ButtonType里面来显示button还是显示a标签
+    // 判断btnType 是否等于ButtonType里面
     if (btnType === ButtonType.Link && href) {
         return (
             <a className={classes} href={href} {...restProps}>

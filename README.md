@@ -62,3 +62,5 @@ npx jest jest.test.js --watch
 "@testing-library/react": "^9.3.2",
 "@testing-library/user-event": "^7.1.2",
 自动安装
+
+<!-- flexbox -->

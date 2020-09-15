@@ -27,7 +27,7 @@ describe('test Button component', () => {
         // 是否有button元素 tagName都是大写的标签名
         expect(element.tagName).toEqual('BUTTON');
         // 是否有className toHaveClass
-        expect(element).toHaveClass('btn btn-default')
+        expect(element).toHaveClass('limuen-btn limuen-btn-default')
         // 是否为真
         expect(element.disabled).toBeFalsy()
         // 调用click方法
@@ -40,7 +40,7 @@ describe('test Button component', () => {
         const element = wrapper.getByText('按钮')
         // 判断是否出现在文档中
         expect(element).toBeInTheDocument();
-        expect(element).toHaveClass('btn-primary btn-lg klass')
+        expect(element).toHaveClass('limuen-btn-primary limuen-btn-lg klass')
     })
     it('should render a link when btnType equals link and href is procided', () => {
         const wrapper = render(<Button btnType={ButtonType.Link} href="http://limuen.cn">Link</Button>)
@@ -50,7 +50,7 @@ describe('test Button component', () => {
         expect(element).toBeInTheDocument();
         // 是否有button元素 tagName都是大写的标签名
         expect(element.tagName).toEqual('A');
-        expect(element).toHaveClass('btn btn-link')
+        expect(element).toHaveClass('limuen-btn limuen-btn-link')
     })
     it('should render disabled button whtn disabled set to true', () => {
         const wrapper = render(<Button {...disabledProps}>按钮</Button>)
