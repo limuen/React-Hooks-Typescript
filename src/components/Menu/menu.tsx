@@ -4,11 +4,11 @@ import { MenuItemProps } from './menuItem';
 
 type MenuMode = 'horizontal' | 'vertical'
 
-type onSelectCallback = (selectIndex: number) => void;
+type onSelectCallback = (selectIndex: string) => void;
 
 export interface MenuProps {
     /**默认 active 的菜单项的索引值 */
-    defaultIndex?: number;
+    defaultIndex?: string;
     className?: string;
     /**菜单类型 横向或者纵向 */
     mode?: MenuMode;
@@ -18,12 +18,12 @@ export interface MenuProps {
 }
 
 interface IMenuContext {
-    index: number;
+    index: string;
     onSelect?: onSelectCallback;
     mode?: MenuMode;
 }
 
-export const MenuContest = createContext<IMenuContext>({ index: 0 })
+export const MenuContest = createContext<IMenuContext>({ index: '0' })
 
 const Menu: React.FC<MenuProps> = (props) => {
     const { defaultIndex, className, mode, style, children, onSelect } = props;
@@ -33,7 +33,7 @@ const Menu: React.FC<MenuProps> = (props) => {
         'limuen-menu-horizontal': mode !== 'vertical'
     })
 
-    const handleClick = (index: number) => {
+    const handleClick = (index: string) => {
         setActive(index);
         if (onSelect) {
             onSelect(index)
@@ -41,7 +41,7 @@ const Menu: React.FC<MenuProps> = (props) => {
     }
 
     const passedContext: IMenuContext = {
-        index: currentActive ? currentActive : 0,
+        index: currentActive ? currentActive : '0',
         onSelect: handleClick,
         mode: mode,
     }
@@ -52,7 +52,7 @@ const Menu: React.FC<MenuProps> = (props) => {
             const { displayName }  = childElement.type
             if(displayName === 'MenuItem' || displayName === 'SubMenu'){
                 return React.cloneElement(childElement, {
-                    index
+                    index: index.toString()
                 })
             }else {
                 console.error('Warning: Menu has a child which is not a MenuItem component')
@@ -70,8 +70,8 @@ const Menu: React.FC<MenuProps> = (props) => {
 }
 
 Menu.defaultProps = {
-    defaultIndex: 0,
-    mode: 'horizontal'
+    defaultIndex: '0',
+    mode: 'vertical'
 }
 
 export default Menu
