@@ -14,19 +14,21 @@ export interface MenuProps {
     mode?: MenuMode;
     style?: React.CSSProperties;
     /**点击菜单项触发的回掉函数 */
-    onSelect?: onSelectCallback
+    onSelect?: onSelectCallback;
+    defaultOpenSubMenus?: string[];
 }
 
 interface IMenuContext {
     index: string;
     onSelect?: onSelectCallback;
     mode?: MenuMode;
+    defaultOpenSubMenus?: string[];
 }
 
 export const MenuContest = createContext<IMenuContext>({ index: '0' })
 
 const Menu: React.FC<MenuProps> = (props) => {
-    const { defaultIndex, className, mode, style, children, onSelect } = props;
+    const { defaultIndex, className, mode, style, children, onSelect, defaultOpenSubMenus } = props;
     const [currentActive, setActive] = useState(defaultIndex)
     const classes = classNames('limuen-menu', className, {
         'limuen-menu-vertical': mode === 'vertical',
@@ -43,7 +45,8 @@ const Menu: React.FC<MenuProps> = (props) => {
     const passedContext: IMenuContext = {
         index: currentActive ? currentActive : '0',
         onSelect: handleClick,
-        mode: mode,
+        mode,
+        defaultOpenSubMenus,
     }
 
     const renderChildred = () => {
@@ -71,7 +74,8 @@ const Menu: React.FC<MenuProps> = (props) => {
 
 Menu.defaultProps = {
     defaultIndex: '0',
-    mode: 'vertical'
+    mode: 'vertical',
+    defaultOpenSubMenus: [],
 }
 
 export default Menu
