@@ -63,4 +63,8 @@ npx jest jest.test.js --watch
 "@testing-library/user-event": "^7.1.2",
 自动安装
 
-<!-- flexbox -->
+
+<!-- 安装react-fontawesome -->
+npm i --save @fortawesome/fontawesome-svg-core \
+             @fortawesome/free-solid-svg-icons \
+             @fortawesome/react-fontawesome
