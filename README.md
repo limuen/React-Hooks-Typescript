@@ -66,5 +66,5 @@ npx jest jest.test.js --watch
 
 <!-- 安装react-fontawesome -->
 npm i --save @fortawesome/fontawesome-svg-core \
-             @fortawesome/free-solid-svg-icons \
-             @fortawesome/react-fontawesome
+npm i --save @fortawesome/free-solid-svg-icons \
+npm i --save @fortawesome/react-fontawesome

@@ -1,15 +1,20 @@
 import React from 'react';
+import { library } from '@fortawesome/fontawesome-svg-core'
+import { fas } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCoffee } from '@fortawesome/free-solid-svg-icons'
+// import { faCoffee } from '@fortawesome/free-solid-svg-icons'
 // import Button, { ButtonSize, ButtonType } from './components/Button/button';
 import Menu from './components/Menu/menu';
 import MenuItem from './components/Menu/menuItem';
 import SubMenu from './components/Menu/subMenu';
+import Icon from './components/Icon/icon';
+
+library.add(fas)
 const App: React.FC = () => {
   return (
     <div className="App">
       <header className="App-header">
-      <FontAwesomeIcon icon={faCoffee} size="10x"/>
+      <Icon icon="arrow-down" theme="primary" size="10x" />
         <Menu defaultIndex='0' onSelect={(index) => { alert(index) }} mode="vertical" defaultOpenSubMenus={['2']}>
           <MenuItem>cool link</MenuItem>
           <MenuItem disabled>cool link2</MenuItem>
@@ -21,9 +26,9 @@ const App: React.FC = () => {
           <MenuItem>cool link3</MenuItem>
         </Menu>
 
-        <p>
+        {/* <p>
           Edit <code>src/App.tsx</code> limuen
-        </p>
+        </p> */}
       </header>
     </div>
   );
