@@ -68,3 +68,7 @@ npx jest jest.test.js --watch
 npm i --save @fortawesome/fontawesome-svg-core \
 npm i --save @fortawesome/free-solid-svg-icons \
 npm i --save @fortawesome/react-fontawesome
+
+<!-- 安装react-transition-group-->
+npm install react-transition-group --save
+npm install @types/react-transition-group --save
